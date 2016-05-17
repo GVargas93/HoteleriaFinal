@@ -253,12 +253,13 @@ CREATE PROCEDURE [dbo].[Ins_Habitacion]
 @Estado 			varchar(50),
 @Observacion 		varchar(50),
 @Fk_TipoHabiatacion_id 	int,
+@Fk_Estadia_id 	int,
 @Fk_Hotel_id		int
 
 AS
 BEGIN
 INSERT INTO [DML].[Tbl_Habitacion]         
-values (@Precio, @NumeroCamas, @Estado, @Observacion, @Fk_TipoHabiatacion_id, @Fk_Hotel_id)
+values (@Precio, @NumeroCamas, @Estado, @Observacion, @Fk_Estadia_id, @Fk_TipoHabiatacion_id, @Fk_Hotel_id)
 SET @Habitacion_iD	 = SCOPE_IDENTITY();
 select @Habitacion_iD = @@IDENTITY
 END
@@ -267,11 +268,11 @@ PRINT '9 FINALIZA PROCEDURE Insertar_Habitacion 9'
 ------------------------------------- Soy Una Barra Separadora  :) ----------------------------------------
 -- =================================================
 /*
-exec [dbo].[Ins_Habitacion] null,100,'1','Vacio','Ninguna',1,1
-exec [dbo].[Ins_Habitacion] null,200,'2','Ocupado','Ninguna',2,2
-exec [dbo].[Ins_Habitacion] null,300,'3','Vacio','Ninguna',3,3
-exec [dbo].[Ins_Habitacion] null,400,'4','Ocupado','Limpiar',4,4
-exec [dbo].[Ins_Habitacion] null,500,'5','Vacio','Ninguna'5,5
+exec [dbo].[Ins_Habitacion] null,100,'1','Vacio','Ninguna',1,1,1
+exec [dbo].[Ins_Habitacion] null,200,'2','Ocupado','Ninguna',2,2,2
+exec [dbo].[Ins_Habitacion] null,300,'3','Vacio','Ninguna',3,3,3
+exec [dbo].[Ins_Habitacion] null,400,'4','Ocupado','Limpiar',4,4,4
+exec [dbo].[Ins_Habitacion] null,500,'5','Vacio','Ninguna'5,5,5
 select * from [DML].[Tbl_Habitacion]  
 */
 -- =================================================
@@ -293,10 +294,11 @@ CREATE PROCEDURE [dbo].[Upd_Habitacion]
 @Estado 			varchar(50),
 @Observacion 		varchar(50),
 @Fk_TipoHabiatacion_id 	int,
+@Fk_Estadia_id 	int,
 @Fk_Hotel_id		int
 as
 begin
-update [DML].[Tbl_Habitacion] set Precio = @Precio, NumeroCamas = @NumeroCamas, Estado = @Estado, Observacion = @Observacion, Fk_TipoHabiatacion_id = @Fk_TipoHabiatacion_id, Fk_Hotel_id = @Fk_Hotel_id
+update [DML].[Tbl_Habitacion] set Precio = @Precio, NumeroCamas = @NumeroCamas, Estado = @Estado, Observacion = @Observacion, Fk_TipoHabiatacion_id = @Fk_TipoHabiatacion_id, Fk_Estadia_id=@Fk_Estadia_id, Fk_Hotel_id = @Fk_Hotel_id
 where  Habitacion_iD= @Habitacion_iD ;
 end
 go
@@ -306,7 +308,7 @@ PRINT '10 FINALIZA PROCEDURE Upd_Habitacion 10'
 ------------------------------------- Soy Una Barra Separadora  :) ----------------------------------------
 -- =================================================
 /* 
-exec [dbo].[Upd_Habitacion] 4,400,'4','Vacio','Limpiar',4,4
+exec [dbo].[Upd_Habitacion] 4,400,'4','Vacio','Limpiar',4,4,4
 select * from [DML].[Tbl_Habitacion]  
 */
 -- =================================================
@@ -386,9 +388,6 @@ PRINT '13 FINALIZA PROCEDURE Insertar_TipoCliente 13'
 /*
 exec [dbo].[Ins_TipoCliente] null,'VIP'
 exec [dbo].[Ins_TipoCliente] null,'NORMAL'
-exec [dbo].[Ins_TipoCliente] null,'NORMAL'
-exec [dbo].[Ins_TipoCliente] null,'VIP'
-exec [dbo].[Ins_TipoCliente] null,'VIP'
 select * from [DML].[Tbl_TipoCliente]  
 */
 -- =================================================
@@ -502,9 +501,9 @@ PRINT '17 FINALIZA PROCEDURE Insertar_Cliente 17'
 /*
 exec [dbo].[Ins_Cliente] null,'Pedro','Martinez','Av Landivar','71329317',1
 exec [dbo].[Ins_Cliente] null,'Diana','Rodriguez','Roca y Coronado','34578398',2
-exec [dbo].[Ins_Cliente] null,'Jose','Clavijo','Av Brazil','9913241',3
-exec [dbo].[Ins_Cliente] null,'Marco','Coronado','Virgen de Cotoca','798531431',4
-exec [dbo].[Ins_Cliente] null,'Nando','Perez','1er Anillo','69061353',5
+exec [dbo].[Ins_Cliente] null,'Jose','Clavijo','Av Brazil','9913241',1
+exec [dbo].[Ins_Cliente] null,'Marco','Coronado','Virgen de Cotoca','798531431',2
+exec [dbo].[Ins_Cliente] null,'Nando','Perez','1er Anillo','69061353',2
 select * from [DML].[Tbl_Cliente]  
 */
 -- =================================================
@@ -592,7 +591,7 @@ select [Cliente_iD],
   from [DML].[Tbl_Cliente]
 END
 GO
-PRINT '20 FINALIZA PROCEDURE Tbl_Permiso 20'
+PRINT '20 FINALIZA PROCEDURE Select_Cliente 20'
 ------------------------------------- Soy Una Barra Separadora  :) ----------------------------------------
 -- =================================================
 --exec [dbo].[Select_Cliente]
@@ -611,13 +610,12 @@ CREATE PROCEDURE [dbo].[Ins_Estadia]
 @Estadia_iD		int OUTPUT,
 @fecha_Llegada				varchar(50),
 @fecha_Salida 		varchar(50),
-@Fk_Habitacion_iD  	int,
 @Fk_Cliente_iD 		int
 
 AS
 BEGIN
 INSERT INTO [DML].[Tbl_Estadia]         
-values (@fecha_Llegada, @fecha_Salida, @Fk_Habitacion_iD, @Fk_Cliente_iD)
+values (@fecha_Llegada, @fecha_Salida, @Fk_Cliente_iD)
 SET @Estadia_iD	 = SCOPE_IDENTITY();
 select @Estadia_iD = @@IDENTITY
 END
@@ -626,11 +624,11 @@ PRINT '21 FINALIZA PROCEDURE Insertar_Estadia 21'
 ------------------------------------- Soy Una Barra Separadora  :) ----------------------------------------
 -- =================================================
 /*
-exec [dbo].[Ins_Estadia] null,'21/05/2016','21/06/2016',1,1
-exec [dbo].[Ins_Estadia] null,'12/03/2016','21/04/2016',2,2
-exec [dbo].[Ins_Estadia] null,'05/04/2016','21/05/2016',3,3
-exec [dbo].[Ins_Estadia] null,'16/06/2016','21/07/2016',4,4
-exec [dbo].[Ins_Estadia] null,'19/01/2016','21/02/2016',5,5
+exec [dbo].[Ins_Estadia] null,'21/05/2016','21/06/2016',1
+exec [dbo].[Ins_Estadia] null,'12/03/2016','21/04/2016',2
+exec [dbo].[Ins_Estadia] null,'05/04/2016','21/05/2016',2
+exec [dbo].[Ins_Estadia] null,'16/06/2016','21/07/2016',1
+exec [dbo].[Ins_Estadia] null,'19/01/2016','21/02/2016',2
 select * from [DML].[Tbl_Estadia]  
 */
 -- =================================================
@@ -649,11 +647,10 @@ CREATE PROCEDURE [dbo].[Upd_Estadia]
 @Estadia_iD		int OUTPUT,
 @fecha_Llegada				varchar(50),
 @fecha_Salida 		varchar(50),
-@Fk_Habitacion_iD  	int,
 @Fk_Cliente_iD 		int
 as
 begin
-update [DML].[Tbl_Estadia] set fecha_Llegada = @fecha_Llegada, fecha_Salida = @fecha_Salida, Fk_Habitacion_iD = @Fk_Habitacion_iD, Fk_Cliente_iD = @Fk_Cliente_iD
+update [DML].[Tbl_Estadia] set fecha_Llegada = @fecha_Llegada, fecha_Salida = @fecha_Salida, Fk_Cliente_iD = @Fk_Cliente_iD
 where  Estadia_iD= @Estadia_iD ;
 end
 go
@@ -663,7 +660,7 @@ PRINT '22 FINALIZA PROCEDURE Upd_Estadia 22'
 ------------------------------------- Soy Una Barra Separadora  :) ----------------------------------------
 -- =================================================
 /* 
-exec [dbo].[Ins_Estadia] null,'19/02/2016','21/03/2016',5,5
+exec [dbo].[Ins_Estadia] null,'19/02/2016','21/03/2016',5
 select * from [DML].[Tbl_Estadia]  
 */
 -- =================================================
@@ -746,6 +743,39 @@ select [Cliente_iD],
 [Fk_TipoCliente_iD]
   from [DML].[Tbl_Cliente]
  WHERE [Cliente_iD]=@intCliente_id
+
+
+END
+
+------------------------------------- Soy Una Barra Separadora  :) ----------------------------------------
+-- =================================================
+--exec [dbo].[Select_Estadia]
+-- =================================================
+------------------------------------- Soy Una Barra Separadora  :) ----------------------------------------
+------------------------------------- Soy Una Barra Separadora  :) ----------------------------------------
+-- =============================================
+-- Author:		<Gerardo Vargas>
+-- Create date:  <05/16/16>
+-- Description:	<obteniendo un cliente>
+-- =============================================
+Create PROCEDURE getEstadiaById
+
+	@intEstadia_id int 
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+SET NOCOUNT ON;
+
+select [Estadia_iD],
+[fecha_Llegada],
+[fecha_Salida],
+[Fk_Cliente_iD]
+  from [DML].[Tbl_Estadia]
+ WHERE [Estadia_iD]=@intEstadia_id
 
 
 END
