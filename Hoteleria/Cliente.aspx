@@ -24,7 +24,7 @@
  </div>
 
   <div class="form-group">
-    <asp:Label ID="Label2" runat="server" Text="Apellido" ForeColor="Red"></asp:Label>
+    <asp:Label ID="Label2" runat="server" Text="Apellido" ForeColor="red"></asp:Label>
     <asp:TextBox ID="Apellido" runat="server"
              CssClass="form-control">
 

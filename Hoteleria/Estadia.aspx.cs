@@ -10,7 +10,7 @@ public partial class Estadia : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
-
+            CargarLista();
 
             if (IsPostBack)
                 return;
@@ -23,6 +23,7 @@ public partial class Estadia : System.Web.UI.Page
             Estadias obj = EstadiaBLL.getEstadiaById(estadia_id);
             llegada.SelectedDate = Convert.ToDateTime(obj.fechaLlegada);
             salida.SelectedDate = Convert.ToDateTime(obj.fechaSalida);
+            
 
 
             estadiaidhiddenfield.Value = stringid;
