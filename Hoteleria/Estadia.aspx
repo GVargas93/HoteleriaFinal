@@ -8,36 +8,34 @@
             <asp:Panel ID="Error" runat="server" Visible="false" CssClass="alert alert-danger" role="alert" >
             </asp:Panel>
         <div class="form-group">
-    <asp:Label ID="Label1" runat="server" Text="Fecha de Llegada" ForeColor="Red"></asp:Label>
-    <asp:TextBox ID="FechaDeLlegada" runat="server"
-             CssClass="form-control">
-    </asp:TextBox>
-              <asp:RequiredFieldValidator runat="server"
-                     ControlToValidate="FechaDeLlegada"
-                     display="Dynamic"
-                         ForeColor="Blue"
-                         ValidationGroup="Estadia"
-                         ErrorMessage="Ingrese la fecha de Ingreso">
-
-                 </asp:RequiredFieldValidator>
+    <asp:Label ID="clientes" runat="server" Text="Cliente" ForeColor="Red"></asp:Label>
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="nombre" DataValueField="Cliente_iD">
+            </asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_HotelConnectionString %>" SelectCommand="SELECT [Cliente_iD], [nombre] FROM [DML].[Tbl_Cliente]"></asp:SqlDataSource>
  </div>
 
-  <div class="form-group">
-    <asp:Label ID="Label2" runat="server" Text="Fecha de Salida" ForeColor="Red"></asp:Label>
-    <asp:TextBox ID="FechaDeSalida" runat="server"
-             CssClass="form-control">
-
-    </asp:TextBox>
-        <asp:RequiredFieldValidator runat="server"
-                     ControlToValidate="FechaDeSalida"
-                     display="Dynamic"
-                         ForeColor="Blue"
-                         ValidationGroup="Estadia"
-                         ErrorMessage="Ingrese la fecha de Salida">
-
-                 </asp:RequiredFieldValidator>
-
- </div>
+            <div class="form-group">
+                <label>Fecha llegada</label>
+                <asp:Calendar ID="llegada" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
+                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                    <OtherMonthDayStyle ForeColor="#999999" />
+                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                    <TodayDayStyle BackColor="#CCCCCC" />
+                </asp:Calendar>
+            </div>
+                         <div class="form-group">
+                <label>Fecha salida</label>
+                <asp:Calendar ID="salida" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
+                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                    <OtherMonthDayStyle ForeColor="#999999" />
+                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                    <TodayDayStyle BackColor="#CCCCCC" />
+                </asp:Calendar>
+            </div>
 
             
               <div class="col-md-12"> 
@@ -62,13 +60,12 @@
                             </asp:LinkButton>
                      </ItemTemplate>
                  </asp:TemplateField>
-                 <asp:BoundField DataField="nombre" HeaderText="Nombre del Cliente" />
-                 <asp:BoundField DataField="apellido" HeaderText="Apellido" />
-                   <asp:BoundField DataField="direccion" HeaderText="Direccion" />
-                 <asp:BoundField DataField="telefono" HeaderText="telefono" />
-                  <asp:BoundField DataField="tipocliente" HeaderText="Tipo cliente" />
+                 <asp:BoundField DataField="fechaLlegada" HeaderText="fecha de llegada" />
+                 <asp:BoundField DataField="fechaSalida" HeaderText="fecha final " />
+                   <asp:BoundField DataField="fkClienteiD" HeaderText="cliente" />
+          
              </Columns>
-              
+
          </asp:GridView>
                  </div>
 

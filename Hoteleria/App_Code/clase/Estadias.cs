@@ -8,9 +8,9 @@ using System.Web;
 /// </summary>
 namespace BD_Hotel
 {
-    public class Estadia
+    public class Estadias
     {
-        public Estadia()
+        public Estadias()
         {
             //
             // TODO: Add constructor logic here
@@ -19,7 +19,6 @@ namespace BD_Hotel
         public int estadia_id { get; set; }
         public string fechaLlegada { get; set; }
         public string fechaSalida { get; set; }
-        public int fkHabitacioniD { get; set; }
         public int fkClienteiD { get; set; }
     }
 }
