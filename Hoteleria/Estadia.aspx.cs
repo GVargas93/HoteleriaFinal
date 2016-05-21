@@ -64,8 +64,9 @@ public partial class Estadia : System.Web.UI.Page
                 estadia_id = estadia_id,
                 fechaLlegada = llegada.SelectedDate.ToString("dd/MM/yyyy"),
                 fechaSalida = salida.SelectedDate.ToString("dd/MM/yyyy"),
-                fkClienteiD = Convert.ToInt32(DropDownList1.SelectedValue)
+                //        fkClienteiD = Convert.ToInt32(DropDownList1.SelectedValue)
 
+                fkClienteiD= Convert.ToInt32(ListBox1.SelectedValue)
 
 
 

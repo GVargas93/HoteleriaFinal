@@ -7,11 +7,14 @@
         <div class="col-md-6" itemid="u">
             <asp:Panel ID="Error" runat="server" Visible="false" CssClass="alert alert-danger" role="alert" >
             </asp:Panel>
+                 <div class="form-group"> 
+           <label>LISTA DE CLIENTE</label>
+                      </div>
         <div class="form-group">
-    <asp:Label ID="clientes" runat="server" Text="Cliente" ForeColor="Red"></asp:Label>
-            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="nombre" DataValueField="Cliente_iD">
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_HotelConnectionString %>" SelectCommand="SELECT [Cliente_iD], [nombre] FROM [DML].[Tbl_Cliente]"></asp:SqlDataSource>
+         
+              <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="nombre" DataValueField="Cliente_iD" Height="200px" Width="200px"></asp:ListBox>
+              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_HotelConnectionString %>" SelectCommand="SELECT nombre, Cliente_iD FROM DML.Tbl_Cliente"></asp:SqlDataSource>
+
  </div>
 
             <div class="form-group">

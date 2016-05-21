@@ -51,7 +51,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="BD_HotelConnectionString (Web.config)" DbObjectName="BD_Hotel.dbo.Ins_Cliente" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="Ins_Cliente" Modifier="Public" Name="Ins_Cliente" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Ins_Cliente">
+              <DbSource ConnectionRef="BD_HotelConnectionString (Web.config)" DbObjectName="BD_Hotel.dbo.Ins_Cliente" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="Ins_Cliente" Modifier="Public" Name="Ins_Cliente" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Ins_Cliente">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.Ins_Cliente</CommandText>
@@ -67,7 +67,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="BD_HotelConnectionString (Web.config)" DbObjectName="BD_Hotel.dbo.Upd_Cliente" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="Upd_Cliente" Modifier="Public" Name="Upd_Cliente" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Upd_Cliente">
+              <DbSource ConnectionRef="BD_HotelConnectionString (Web.config)" DbObjectName="BD_Hotel.dbo.Upd_Cliente" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="Upd_Cliente" Modifier="Public" Name="Upd_Cliente" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Upd_Cliente">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.Upd_Cliente</CommandText>
@@ -93,7 +93,7 @@
   <xs:element name="Clientedb" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Clientedb" msprop:Generator_UserDSName="Clientedb">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Cliente" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_TableVarName="tableCliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_RowClassName="ClienteRow" msprop:Generator_UserTableName="Cliente" msprop:Generator_RowEvArgName="ClienteRowChangeEvent">
+        <xs:element name="Cliente" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_TableVarName="tableCliente" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_UserTableName="Cliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_RowEvArgName="ClienteRowChangeEvent" msprop:Generator_RowClassName="ClienteRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente_iD" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCliente_iD" msprop:Generator_ColumnPropNameInRow="Cliente_iD" msprop:Generator_ColumnPropNameInTable="Cliente_iDColumn" msprop:Generator_UserColumnName="Cliente_iD" type="xs:int" />
