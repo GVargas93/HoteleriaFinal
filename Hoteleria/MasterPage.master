@@ -4,52 +4,93 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <title>Hotel Siles</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="layout.css" rel="stylesheet" type="text/css" />
+    <script src="maxheight.js" type="text/javascript"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
- <form id="form1" runat="server" class="container">
-        <nav> <asp:HyperLink runat="server" NavigateUrl="~/Cliente.aspx"></asp:HyperLink></nav>
-        <nav> <asp:HyperLink runat="server" NavigateUrl="~/TipoCliente.aspx"></asp:HyperLink></nav>
-        <nav> <asp:HyperLink runat="server" NavigateUrl="~/Habitacion.aspx"></asp:HyperLink></nav>
-        <nav> <asp:HyperLink runat="server" NavigateUrl="~/TipodeHabitacion.aspx"></asp:HyperLink></nav>
-        <nav> <asp:HyperLink runat="server" NavigateUrl="~/Estadia.aspx"></asp:HyperLink></nav>
-        <nav> <asp:HyperLink runat="server" NavigateUrl="~/Hotel.aspxx"></asp:HyperLink></nav>
 
-        <nav class="navbar navbar-defecto">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                 
-                
+<body id="page1" onload="new ElementMaxHeight();">
+    <div id="main">
+        <div id="header">
+            <div class="row-1">
+                <div class="wrapper">
+                    <div class="logo">
+                        <h1><a href="#">HOTEL SILES</a></h1>
+                        <em>5 Estrellas </em><strong>lujo verdadero</strong>
+                    </div>
+                    <div class="phones">
+                        (+591) 33-54-34-23<br />
+                        (+591) 33-54-34-23
+                    </div>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                            
-                        <li><a href="Cliente.aspx">Lista de Cliente</a></li>
-                     <li><a href="TipoCliente.aspx">Tipo de Cliente</a></li>
-                        <li><a href="Habitacion.aspx">Habitacion</a></li>
-                        <li><a href="TipodeHabitacion.aspx">Tipo de Habitaciones</a></li>
-                        <li><a href="Estadia.aspx">Estadia</a></li>
-                              <li><a href="Hotel.aspx">Hoteles</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
             </div>
-            <!--/.container-fluid -->
-        </nav>
-            <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+            <div class="row-2">
+                <div class="indent">
+                    <!-- header-box begin -->
+                    <div class="header-box">
+                        <div class="inner">
+                            <ul class="nav">
+                                <li><a href="Inicio.aspx" class="current">PÁGINA DE INICIO</a></li>
+                                <%--<li><a href="TipoCliente.aspx">Tipo Cliente</a></li>--%>
+                                <li><a href="Cliente.aspx">Cliente</a></li>
+                                <%--<li><a href="ListaTipoHabitacion.aspx">Tipo Habitacion</a></li>--%>
+                                <li><a href="ListaHabitacion.aspx">Habitacion</a></li>
+                                <li><a href="Estadia.aspx">Estadia</a></li>
+                                <li><a href="Contactenos.aspx">Contactenos</a></li>
+                                <li><a href="testimonio.aspx">testimonio</a></li>
 
-    </form>
-    
-    <footer class="footer">
-        <div class="container">
-        <p class="text-muted text-center">Examen 1</p>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-    </footer>
+        <!-- xxxxxxxxxxxxxxxxxxxxxx header-box end  xxxxxxxxxxxxxxxxxxxxxx-->
+
+        <div id="content">
+            <div class="wrapper">
+                <div class="aside maxheight">
+
+                    <form id="form1" runat="server" class="container">
+                        <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="footer">
+            <ul class="nav">
+                <li><a href="Inicio.aspx" class="current">PÁGINA DE INICIO</a></li>
+                <%--<li><a href="TipoCliente.aspx">Tipo Cliente</a></li>--%>
+                <li><a href="Cliente.aspx">Cliente</a></li>
+                <%--<li><a href="ListaTipoHabitacion.aspx">Tipo Habitacion</a></li>--%>
+                <li><a href="ListaHabitacion.aspx">Habitacion</a></li>
+                <li><a href="Estadia.aspx">Estadia</a></li>
+                <li><a href="Contactenos.aspx">Contactenos</a></li>
+                <li><a href="testimonio.aspx">testimonio</a></li>
+            </ul>
+            <div class="wrapper">
+                <div class="fleft">Proyecto &copy; 2016 <a href="#">Hotel Siles</a>.Todos los derechos reservados</div>
+                <div class="fright">
+                    Diseñado por - <a href="https://www.facebook.com/d4ddy93/">Alvaro </a>- <a href="https://www.facebook.com/jose.clavijozambrana/">Jose </a>- <a href="https://www.facebook.com/gvargas93/">Gerardo </a>.
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
 </html>

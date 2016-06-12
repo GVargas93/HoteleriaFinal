@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hotel Siles</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="layout.css" rel="stylesheet" type="text/css" />
+    <script src="maxheight.js" type="text/javascript"></script>
+    <!-- http://www.hotelcortez.com/ -->
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body id="page1" onload="new ElementMaxHeight();">
+    <div id="main">
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="header">
+            <div class="row-1">
+                <div class="wrapper">
+                    <div class="logo">
+                        <h1><a href="#">HOTEL SILES</a></h1>
+                        <em>5 Estrellas </em><strong>lujo verdadero</strong>
+                    </div>
+                    <div class="phones">
+                        (+591) 33-54-34-23<br />
+                        (+591) 33-54-34-23
+                    </div>
+                </div>
+            </div>
+            <div class="row-2">
+                <div class="indent">
+                    <!-- header-box begin -->
+                    <div class="header-box">
+                        <div class="inner">
+                            <ul class="nav">
+                                <li><a href="_Inicio.aspx" class="current">PÁGINA DE INICIO</a></li>
+                                <li><a href="_Servicio.aspx">SERVICIOS</a></li>
+                                <li><a href="_Galería.aspx">GALERÍA</a></li>
+                                <li><a href="_Restaurante.aspx">RESTAURANTE</a></li>
+                                <li><a href="_#">TESTIMONIOS</a></li>
+                                <li><a href="_Reserva.aspx">RESERVAS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- xxxxxxxxxxxxxxxxxxxxxx header-box end  xxxxxxxxxxxxxxxxxxxxxx-->
+        <div id="content">
+            <div class="wrapper">
+                <form id="form1" runat="server">
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+<%--         </div>
+  </div>--%>
+
+    <div id="footer">
+        <ul class="nav">
+            <li><a href="_Inicio.aspx">Inicio</a>|</li>
+            <li><a href="_Servicio.aspx">servicios</a>|</li>
+            <li><a href="_Galería.aspx">Galería</a>|</li>
+            <li><a href="_Restaurante.aspx">restaurante</a>|</li>
+            <li><a href="#">Testimonios</a>|</li>
+            <li><a href="_Reserva.aspx">Reserva</a></li>
+        </ul>
+        <div class="wrapper">
+            <div class="fleft">Proyecto &copy; 2016 <a href="#">Hotel Siles</a>.Todos los derechos reservados</div>
+            <div class="fright">
+                Diseñado por - <a href="https://www.facebook.com/d4ddy93/">Alvaro </a>- <a href="https://www.facebook.com/jose.clavijozambrana/">Jose </a>- <a href="https://www.facebook.com/gvargas93/">Gerardo </a>.
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+</body>
+</html>

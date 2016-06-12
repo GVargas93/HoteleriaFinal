@@ -11,7 +11,7 @@ namespace BD_Hotel.BBL
 {
     public class TipoHabitacionBLL
     {
-	    public TipoHabitacionBLL(){}
+        public TipoHabitacionBLL() { }
 
         public static List<TipoHabitacion> GetTipoHabitacion()
         {

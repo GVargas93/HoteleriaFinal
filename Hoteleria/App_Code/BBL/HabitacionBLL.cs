@@ -10,7 +10,7 @@ namespace BD_Hotel.BBL
 {
     public class HabitacionBLL
     {
-	    public HabitacionBLL() {}
+        public HabitacionBLL() { }
 
         public static List<Habitacion> GetHabitacion()
         {
@@ -31,13 +31,14 @@ namespace BD_Hotel.BBL
         {
             Habitacion obj = new Habitacion()
             {
-                habitacionId=row.Habitacion_iD,
-                precio=row.Precio,
-                numeroCamas=row.NumeroCamas,
-                estado=row.Estado,
-                observacion=row.Observacion,
-                tipoHabitacion=row.Fk_TipoHabiatacion_id,
-                hotel=row.Fk_Hotel_id
+                habitacionId = row.Habitacion_iD,
+                precio = row.Precio,
+                numeroCamas = row.NumeroCamas,
+                estado = row.Estado,
+                observacion = row.Observacion,
+                Estadia=row.Fk_Estadia_iD,
+                tipoHabitacion = row.Fk_TipoHabiatacion_id,
+                hotel = row.Fk_Hotel_id
             };
             return obj;
         }
@@ -46,7 +47,7 @@ namespace BD_Hotel.BBL
         {
             if (HabitacionId <= 0)
 
-            throw new ArgumentException("El id de Habitacion no puede ser menor o igual que cero");
+                throw new ArgumentException("El id de Habitacion no puede ser menor o igual que cero");
             HabitaciondbTableAdapters.HabitacionTableAdapter adapter = new HabitaciondbTableAdapters.HabitacionTableAdapter();
             adapter.EliminarHabitacion(HabitacionId);
 
@@ -87,7 +88,7 @@ namespace BD_Hotel.BBL
             int? id = 0;
 
             HabitaciondbTableAdapters.HabitacionTableAdapter adapter = new HabitaciondbTableAdapters.HabitacionTableAdapter();
-            adapter.InsertarHabitacion(ref id, obj.precio, obj.numeroCamas, obj.estado, obj.observacion, obj.tipoHabitacion, obj.hotel);
+            adapter.InsertarHabitacion(ref id, obj.precio, obj.numeroCamas, obj.estado, obj.observacion, obj.tipoHabitacion,obj.Estadia, obj.hotel);
             if (id == null || id <= 0)
                 throw new Exception("La llave primaria no se generó correctamente");
             return id.Value;
@@ -116,6 +117,10 @@ namespace BD_Hotel.BBL
             {
                 throw new ArgumentException("El observacion no puede ser nulo o vacio");
             }
+            if (obj.Estadia == null)
+            {
+                throw new ArgumentException("El tipoHabitacion no puede ser nulo o vacio");
+            }
             if (obj.tipoHabitacion == null)
             {
                 throw new ArgumentException("El tipoHabitacion no puede ser nulo o vacio");
@@ -128,7 +133,10 @@ namespace BD_Hotel.BBL
             int? id = 0;
 
             HabitaciondbTableAdapters.HabitacionTableAdapter adapter = new HabitaciondbTableAdapters.HabitacionTableAdapter();
-            adapter.ActualizarHabitacion(obj.habitacionId, obj.precio, obj.numeroCamas, obj.estado, obj.observacion, obj.tipoHabitacion, obj.hotel);
+
+
+            //adapter.ActualizarrHabitacion(obj.habitacionId, obj.precio, obj.numeroCamas, obj.estado, obj.observacion, obj.tipoHabitacion, obj.Estadia, obj.hotel);
+
         }
 
         public static Habitacion GetHabitacionById(int HabitacionId)
@@ -138,7 +146,7 @@ namespace BD_Hotel.BBL
 
             HabitaciondbTableAdapters.HabitacionTableAdapter adapter = new HabitaciondbTableAdapters.HabitacionTableAdapter();
             Habitaciondb.HabitacionDataTable table = adapter.GetHabitacionById(HabitacionId);
-            Habitacion obj=getHabitacionFromRow(table[0]);
+            Habitacion obj = getHabitacionFromRow(table[0]);
             return obj;
         }
     }
